@@ -12,7 +12,7 @@ live-*.png
 .jekyll-cache
 */.DS_Store
 */*/.DS_Store
-# Legacy theme assets kept locally for reference but not published.
+# Legacy assets kept locally for reference but not published.
 /img/avatar-hux*.jpg
 /img/bg-me-2022.jpg
 /img/blog-*.jpg

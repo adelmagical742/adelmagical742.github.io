@@ -1,14 +1,14 @@
 {
-    "name": "hux-blog",
+    "name": "melting-pot-blog",
     "title": "Melting_Pot Blog",
     "author": "Melting_Pot",
     "version": "1.8.2",
-    "homepage": "https://melting-pot.github.io",
+    "homepage": "https://meltingppot.github.io/Melting_Pot.github.io/",
     "repository": {
         "type": "git",
-        "url": "https://github.com/Melting_Pot/Melting_Pot.github.io"
+        "url": "https://github.com/MeltingPPot/Melting_Pot.github.io"
     },
-    "bugs": "https://github.com/Melting_Pot/Melting_Pot.github.io/issues",
+    "bugs": "https://github.com/MeltingPPot/Melting_Pot.github.io/issues",
     "devDependencies": {
         "grunt": ">=1.3.0",
         "grunt-banner": "~0.2.3",
