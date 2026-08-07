@@ -39,6 +39,9 @@ exclude:
   [
     "less",
     "node_modules",
+    "tools",
+    "manage-blog.cmd",
+    "manage-blog.ps1",
     "Gruntfile.js",
     "package.json",
     "README.md",

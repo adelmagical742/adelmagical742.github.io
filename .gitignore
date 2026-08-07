@@ -10,6 +10,9 @@ live-*.png
 *.sh
 .DS_Store
 .jekyll-cache
+.blog-admin-trash/
+__pycache__/
+*.py[cod]
 */.DS_Store
 */*/.DS_Store
 # Legacy assets kept locally for reference but not published.
