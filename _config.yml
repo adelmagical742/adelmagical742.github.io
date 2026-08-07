@@ -5,8 +5,8 @@ header-img: img/home-bg-geek.jpg
 email: ""
 description: "记录代码、系统与长期主义。这里是 Melting_Pot 的个人技术实验室。"
 keyword: "个人技术博客, 编程, Web, JavaScript, 前端, 工程实践, 学习笔记"
-url: "https://melting-pot.github.io" # 如果你的 GitHub Pages 地址不同，请改这里
-baseurl: "" # for example, '/blog' if your blog hosted on 'host/blog'
+url: "https://meltingppot.github.io" # GitHub Pages 账号地址
+baseurl: "/Melting_Pot.github.io" # 当前仓库是项目站点
 
 # Publish posts or collection documents with a future date.
 future: true
