@@ -23,6 +23,7 @@ body {
   color: var(--ink);
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
   letter-spacing: .01em;
+  transition: background-color .28s ease, color .28s ease;
 }
 
 body::selection {
@@ -71,6 +72,50 @@ a:focus {
   margin-left: 7px;
   font-family: inherit;
   font-size: 11px;
+}
+
+.theme-toggle {
+  display: flex;
+  align-items: center;
+  gap: 1px;
+  margin: 0;
+  padding: 20px 15px;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  color: #fff;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 12px;
+  font-weight: 800;
+  line-height: 20px;
+  letter-spacing: .08em;
+  transition: color .2s ease, transform .2s ease;
+}
+
+.theme-toggle:hover,
+.theme-toggle:focus {
+  color: #8ff5e9;
+  transform: translateY(-1px);
+}
+
+.theme-toggle__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 17px;
+  font-size: 17px;
+  font-weight: 400;
+  line-height: 1;
+}
+
+.navbar-custom.invert .theme-toggle,
+.navbar-custom.is-fixed .theme-toggle {
+  color: #404040;
+}
+
+.navbar-custom.invert .theme-toggle:hover,
+.navbar-custom.is-fixed .theme-toggle:hover {
+  color: var(--accent);
 }
 
 /* Home and page headers */
@@ -702,9 +747,159 @@ footer .copyright a:hover {
   color: #72eee0;
 }
 
+/* Day/night theme. The digital-lab hero intentionally remains dark. */
+html[data-theme="dark"] {
+  --ink: #e7f2f7;
+  --muted: #94a8b8;
+  --paper: #07111f;
+  --card: #0d1b2b;
+  --line: #20364a;
+  --accent: #32c9c0;
+  --accent-deep: #72eee0;
+  --shadow: 0 18px 48px rgba(0, 0, 0, .22);
+}
+
+html[data-theme="dark"] body {
+  background: var(--paper);
+  color: var(--ink);
+}
+
+html[data-theme="dark"] .post-preview,
+html[data-theme="dark"] .sidebar-container > section,
+html[data-theme="dark"] .sidebar-container > .short-about {
+  border-color: var(--line);
+  background: rgba(13, 27, 43, .92);
+  box-shadow: 0 16px 42px rgba(0, 0, 0, .2);
+}
+
+html[data-theme="dark"] .post-preview:hover {
+  border-color: rgba(50, 201, 192, .48);
+  box-shadow: 0 22px 55px rgba(0, 0, 0, .28);
+}
+
+html[data-theme="dark"] .post-preview .post-content-preview,
+html[data-theme="dark"] .post-container,
+html[data-theme="dark"] .sidebar-container,
+html[data-theme="dark"] .sidebar-container .short-about p {
+  color: #a8bac8;
+}
+
+html[data-theme="dark"] .post-preview > .post-meta {
+  color: #71889b;
+}
+
+html[data-theme="dark"] .sidebar-container .tags a,
+html[data-theme="dark"] #tag_cloud a,
+html[data-theme="dark"] #tag_cloud .tag {
+  border-color: var(--line);
+  background: #102235;
+  color: #91dcd7 !important;
+}
+
+html[data-theme="dark"] .post-container blockquote {
+  background: rgba(50, 201, 192, .09);
+  color: #a8bdca;
+}
+
+html[data-theme="dark"] .post-container code {
+  background: #10283a;
+  color: #8ff5e9;
+}
+
+html[data-theme="dark"] .post-container th {
+  background: #10283a;
+  color: var(--ink);
+}
+
+html[data-theme="dark"] .post-container th,
+html[data-theme="dark"] .post-container td {
+  border-color: var(--line);
+}
+
+html[data-theme="dark"] .post-container tr:nth-child(even) td {
+  background: rgba(255, 255, 255, .025);
+}
+
+html[data-theme="dark"] hr,
+html[data-theme="dark"] .post-container h2::before {
+  border-color: var(--line);
+}
+
+html[data-theme="dark"] select,
+html[data-theme="dark"] .pager li > a,
+html[data-theme="dark"] .pager li > span {
+  border-color: var(--line);
+  background: var(--card);
+  color: var(--ink);
+}
+
+html[data-theme="dark"] .side-catalog .catalog-body .active {
+  background: #10283a;
+}
+
+html[data-theme="dark"] .search-page {
+  background: #07111f;
+}
+
+html[data-theme="dark"] .search-page #search-input {
+  color: var(--ink);
+  background: transparent;
+}
+
+html[data-theme="dark"] .search-icon a,
+html[data-theme="dark"] .search-icon-close {
+  color: var(--ink);
+}
+
+html[data-theme="dark"] .navbar-custom.is-fixed,
+html[data-theme="dark"] .navbar-custom.invert {
+  border-bottom-color: rgba(114, 238, 224, .12);
+  background: rgba(7, 17, 31, .92);
+}
+
+html[data-theme="dark"] .navbar-custom.is-fixed .navbar-brand,
+html[data-theme="dark"] .navbar-custom.is-fixed .nav li a,
+html[data-theme="dark"] .navbar-custom.invert .navbar-brand,
+html[data-theme="dark"] .navbar-custom.invert .nav li a,
+html[data-theme="dark"] .navbar-custom.is-fixed .theme-toggle,
+html[data-theme="dark"] .navbar-custom.invert .theme-toggle {
+  color: #e7f2f7;
+}
+
+html[data-theme="dark"] .navbar-custom.is-fixed .nav li a:hover,
+html[data-theme="dark"] .navbar-custom.invert .nav li a:hover,
+html[data-theme="dark"] .navbar-custom.is-fixed .theme-toggle:hover,
+html[data-theme="dark"] .navbar-custom.invert .theme-toggle:hover {
+  color: #8ff5e9;
+}
+
+html[data-theme="dark"] .avatar-orbit {
+  background: #102235;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, .32);
+}
+
 @media (max-width: 767px) {
   .navbar-custom {
     background: rgba(7, 17, 31, .84);
+  }
+
+  .theme-toggle {
+    width: 100%;
+    padding: 10px 15px;
+    color: #404040;
+    text-align: left;
+  }
+
+  .theme-toggle .nav-label {
+    display: inline;
+  }
+
+  html[data-theme="dark"] .navbar-default .navbar-collapse {
+    background: #0d1b2b;
+  }
+
+  html[data-theme="dark"] .theme-toggle {
+    color: #e7f2f7;
   }
 
   header.intro-header {
@@ -778,6 +973,10 @@ footer .copyright a:hover {
 
   .nav-label {
     display: none;
+  }
+
+  .theme-toggle .theme-toggle__label {
+    display: inline;
   }
 }
 

@@ -8,6 +8,59 @@
     return Math.min(Math.max(value, min), max);
   }
 
+  function setupThemeToggle() {
+    var storageKey = 'melting-pot-theme';
+    var toggle = document.querySelector('.theme-toggle');
+    var icon = toggle && toggle.querySelector('.theme-toggle__icon');
+    var label = toggle && toggle.querySelector('.theme-toggle__label');
+    var colorScheme = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)');
+    if (!toggle) return;
+
+    function getSavedTheme() {
+      try {
+        return window.localStorage.getItem(storageKey);
+      } catch (error) {
+        return null;
+      }
+    }
+
+    function applyTheme(theme) {
+      var dark = theme === 'dark';
+      var nextName = dark ? '日间' : '夜间';
+      document.documentElement.setAttribute('data-theme', theme);
+      document.documentElement.style.colorScheme = theme;
+      icon.textContent = dark ? '☀' : '☾';
+      label.textContent = nextName;
+      toggle.setAttribute('aria-label', '切换到' + nextName + '模式');
+      toggle.setAttribute('title', '切换到' + nextName + '模式');
+      toggle.setAttribute('aria-pressed', dark ? 'true' : 'false');
+
+      var themeMeta = document.querySelector('meta[name="theme-color"]');
+      if (themeMeta) themeMeta.setAttribute('content', dark ? '#07111f' : '#f5f8fc');
+    }
+
+    function saveTheme(theme) {
+      try {
+        window.localStorage.setItem(storageKey, theme);
+      } catch (error) {
+        // Theme still works for this page when storage is unavailable.
+      }
+    }
+
+    applyTheme(document.documentElement.getAttribute('data-theme') || 'light');
+    toggle.addEventListener('click', function () {
+      var nextTheme = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+      applyTheme(nextTheme);
+      saveTheme(nextTheme);
+    });
+
+    if (colorScheme && colorScheme.addEventListener) {
+      colorScheme.addEventListener('change', function (event) {
+        if (!getSavedTheme()) applyTheme(event.matches ? 'dark' : 'light');
+      });
+    }
+  }
+
   function setupTerminalDecode() {
     var title = document.querySelector('.js-terminal-decode');
     if (!title || reduceMotion) return;
@@ -262,6 +315,7 @@
     update();
   }
 
+  setupThemeToggle();
   setupTerminalDecode();
   setupHeroParticles();
   setupRevealEffects();
