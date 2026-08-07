@@ -5,6 +5,7 @@ _archive
 node_modules
 .vscode
 *.log
+live-*.png
 *.lock
 *.sh
 .DS_Store

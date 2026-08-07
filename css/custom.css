@@ -185,6 +185,7 @@ header.intro-header .header-mask {
 .post-preview .post-content-preview {
   color: var(--muted);
   font-size: 14px;
+  font-style: normal;
   line-height: 1.9;
 }
 
