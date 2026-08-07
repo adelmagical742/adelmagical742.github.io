@@ -1,5 +1,5 @@
 /*
- * 代码边界 · personal visual layer
+ * Melting_Pot · personal visual layer
  * Keep this file separate from hux-blog.css so theme updates stay painless.
  */
 :root {
@@ -75,6 +75,9 @@ a:focus {
 
 /* Home and page headers */
 header.intro-header {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
   min-height: 520px;
   margin-bottom: 68px;
   background-color: var(--navy);
@@ -93,6 +96,7 @@ header.intro-header::before {
     linear-gradient(rgba(17, 166, 161, .06) 1px, transparent 1px),
     linear-gradient(90deg, rgba(17, 166, 161, .06) 1px, transparent 1px);
   background-size: auto, 48px 48px, 48px 48px;
+  z-index: 0;
 }
 
 header.intro-header .header-mask {
@@ -105,6 +109,236 @@ header.intro-header .header-mask {
   position: relative;
   z-index: 1;
   text-align: left;
+}
+
+.intro-header > .container {
+  position: relative;
+  z-index: 2;
+}
+
+/* Home digital-lab scene */
+.home-hero {
+  min-height: 620px;
+}
+
+.home-hero::before {
+  opacity: 1;
+  background:
+    radial-gradient(circle at 72% 32%, rgba(24, 217, 202, .22), transparent 31%),
+    radial-gradient(circle at 24% 68%, rgba(62, 87, 190, .24), transparent 35%),
+    linear-gradient(118deg, rgba(4, 10, 20, .97) 4%, rgba(7, 17, 31, .9) 52%, rgba(4, 24, 38, .76) 100%);
+  background-size: 130% 130%, 130% 130%, auto;
+  animation: lab-aurora 14s ease-in-out infinite alternate;
+}
+
+.home-hero::after {
+  position: absolute;
+  z-index: 0;
+  top: 38%;
+  right: -20%;
+  bottom: -70%;
+  left: -20%;
+  content: "";
+  pointer-events: none;
+  opacity: .38;
+  background-image:
+    linear-gradient(rgba(114, 238, 224, .18) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(114, 238, 224, .18) 1px, transparent 1px);
+  background-size: 54px 54px;
+  transform: perspective(480px) rotateX(62deg) translateY(8%);
+  transform-origin: center top;
+  animation: lab-grid 9s linear infinite;
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0%, #000 28%, #000 100%);
+  mask-image: linear-gradient(to bottom, transparent 0%, #000 28%, #000 100%);
+}
+
+.hero-particles {
+  position: absolute;
+  z-index: 1;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.home-hero .site-heading {
+  padding-top: 178px;
+  padding-bottom: 150px;
+}
+
+.home-hero .site-heading::before {
+  content: "// MELTING_POT / DIGITAL LAB";
+}
+
+.home-hero .site-heading h1 {
+  text-shadow: 0 0 42px rgba(114, 238, 224, .13);
+}
+
+.home-hero .site-heading .subheading {
+  display: inline-flex;
+  align-items: center;
+  min-height: 35px;
+  padding: 7px 13px;
+  border: 1px solid rgba(114, 238, 224, .24);
+  border-radius: 6px;
+  background: rgba(3, 12, 23, .44);
+  color: #8ff5e9;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 14px;
+  letter-spacing: .09em;
+  box-shadow: inset 0 0 18px rgba(17, 166, 161, .05);
+  backdrop-filter: blur(8px);
+}
+
+@keyframes lab-aurora {
+  0% { background-position: 0% 45%, 100% 60%, center; }
+  100% { background-position: 18% 60%, 82% 42%, center; }
+}
+
+@keyframes lab-grid {
+  from { background-position: 0 0, 0 0; }
+  to { background-position: 0 54px, 54px 0; }
+}
+
+/* Configurable home status panel */
+.home-console {
+  position: relative;
+  margin: 0 0 30px;
+  overflow: hidden;
+  border: 1px solid rgba(17, 166, 161, .27);
+  border-radius: 15px;
+  background:
+    linear-gradient(135deg, rgba(10, 25, 42, .98), rgba(5, 15, 28, .96)),
+    var(--navy);
+  color: #d6e8f1;
+  box-shadow: 0 18px 52px rgba(7, 17, 31, .18);
+}
+
+.home-console::after {
+  position: absolute;
+  inset: 0;
+  content: "";
+  pointer-events: none;
+  opacity: .35;
+  background: linear-gradient(transparent 50%, rgba(114, 238, 224, .025) 50%);
+  background-size: 100% 4px;
+}
+
+.home-console__bar {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-height: 42px;
+  padding: 0 16px;
+  border-bottom: 1px solid rgba(114, 238, 224, .12);
+  color: #8299ae;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 10px;
+  letter-spacing: .12em;
+}
+
+.home-console__lights {
+  display: inline-flex;
+  gap: 6px;
+}
+
+.home-console__lights i {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #33475d;
+}
+
+.home-console__lights i:first-child { background: #e46b78; }
+.home-console__lights i:nth-child(2) { background: #d9ad5c; }
+.home-console__lights i:last-child { background: #4ec7a0; }
+
+.home-console__signal {
+  margin-left: auto;
+  color: #72eee0;
+}
+
+.home-console__signal::before {
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  margin-right: 7px;
+  border-radius: 50%;
+  background: #72eee0;
+  content: "";
+  box-shadow: 0 0 0 0 rgba(114, 238, 224, .45);
+  animation: signal-pulse 2s ease-out infinite;
+}
+
+.home-console__body {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(240px, 1fr);
+  align-items: center;
+  gap: 26px;
+  padding: 27px 28px 29px;
+}
+
+.home-console__status {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.home-console__prompt {
+  color: #72eee0;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 25px;
+  text-shadow: 0 0 18px rgba(114, 238, 224, .35);
+}
+
+.home-console__label {
+  display: block;
+  margin-bottom: 5px;
+  color: #6f899e;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 9px;
+  letter-spacing: .16em;
+}
+
+.home-console__status strong {
+  color: #f2fbff;
+  font-size: 16px;
+  font-weight: 650;
+  letter-spacing: .03em;
+}
+
+.home-console__principles {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+}
+
+.home-console__principles span {
+  padding: 11px 8px;
+  border: 1px solid rgba(114, 238, 224, .1);
+  border-radius: 8px;
+  background: rgba(114, 238, 224, .035);
+  color: #a9becd;
+  text-align: center;
+  font-size: 11px;
+}
+
+.home-console__principles i {
+  display: block;
+  margin-bottom: 4px;
+  color: #3faea8;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 8px;
+  font-style: normal;
+}
+
+@keyframes signal-pulse {
+  70% { box-shadow: 0 0 0 7px rgba(114, 238, 224, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(114, 238, 224, 0); }
 }
 
 .intro-header .site-heading h1,
@@ -145,6 +379,10 @@ header.intro-header .header-mask {
   content: "// field notes";
 }
 
+.home-hero .site-heading::before {
+  content: "// MELTING_POT / DIGITAL LAB";
+}
+
 /* Article list */
 .postlist-container {
   position: relative;
@@ -164,6 +402,42 @@ header.intro-header .header-mask {
   border-color: rgba(17, 166, 161, .38);
   box-shadow: 0 22px 55px rgba(27, 51, 82, .13);
   transform: translateY(-4px);
+}
+
+.post-preview.tilt-card {
+  --tilt-x: 0deg;
+  --tilt-y: 0deg;
+  --glow-x: 50%;
+  --glow-y: 50%;
+  overflow: hidden;
+  transform: perspective(900px) translateY(0) rotateX(var(--tilt-x)) rotateY(var(--tilt-y));
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+
+.post-preview.tilt-card::before {
+  position: absolute;
+  z-index: 0;
+  inset: 0;
+  border-radius: inherit;
+  content: "";
+  pointer-events: none;
+  opacity: 0;
+  background: radial-gradient(circle at var(--glow-x) var(--glow-y), rgba(17, 166, 161, .16), transparent 34%);
+  transition: opacity .25s ease;
+}
+
+.post-preview.tilt-card:hover {
+  transform: perspective(900px) translateY(-5px) rotateX(var(--tilt-x)) rotateY(var(--tilt-y));
+}
+
+.post-preview.tilt-card:hover::before {
+  opacity: 1;
+}
+
+.post-preview.tilt-card > * {
+  position: relative;
+  z-index: 1;
 }
 
 .post-preview > a > .post-title {
@@ -229,6 +503,64 @@ header.intro-header .header-mask {
   height: 84px;
   border: 0;
   box-shadow: 0 10px 24px rgba(17, 166, 161, .2);
+}
+
+.avatar-orbit {
+  position: relative;
+  width: 94px;
+  height: 94px;
+  margin: 2px 0 22px;
+  padding: 4px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, .95);
+  box-shadow: 0 12px 32px rgba(17, 166, 161, .2);
+  transition: transform .3s ease, box-shadow .3s ease;
+}
+
+.avatar-orbit::before,
+.avatar-orbit::after {
+  position: absolute;
+  content: "";
+  pointer-events: none;
+  border-radius: 50%;
+}
+
+.avatar-orbit::before {
+  inset: -5px;
+  border: 1px solid rgba(17, 166, 161, .32);
+  border-top-color: #72eee0;
+  border-right-color: transparent;
+  animation: avatar-orbit 9s linear infinite;
+}
+
+.avatar-orbit::after {
+  inset: -10px;
+  border: 1px dashed rgba(17, 166, 161, .17);
+  animation: avatar-orbit 15s linear infinite reverse;
+}
+
+.sidebar-container .short-about .avatar-orbit img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: none;
+  transition: transform .35s ease;
+}
+
+.avatar-orbit:hover {
+  box-shadow: 0 15px 38px rgba(17, 166, 161, .3);
+  transform: scale(1.035);
+}
+
+.avatar-orbit:hover img {
+  transform: scale(1.035);
+}
+
+@keyframes avatar-orbit {
+  to { transform: rotate(360deg); }
 }
 
 .sidebar-container .short-about p {
@@ -310,6 +642,51 @@ header.intro-header .header-mask {
   overflow-y: hidden;
 }
 
+/* Progressive enhancement: content is visible until JavaScript opts in. */
+.motion-ready [data-reveal] {
+  opacity: 0;
+  transform: translateY(22px);
+  transition:
+    opacity .58s ease var(--reveal-delay, 0ms),
+    transform .68s cubic-bezier(.2, .72, .2, 1) var(--reveal-delay, 0ms);
+}
+
+.motion-ready [data-reveal].is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.motion-ready [data-chapter-reveal] {
+  transform: translateX(-12px);
+}
+
+.motion-ready [data-chapter-reveal].is-visible {
+  transform: translateX(0);
+}
+
+.reading-progress {
+  position: fixed;
+  z-index: 1040;
+  top: 59px;
+  right: 0;
+  left: 0;
+  height: 2px;
+  overflow: hidden;
+  pointer-events: none;
+  background: rgba(7, 17, 31, .08);
+}
+
+.reading-progress span {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, #087875, #72eee0);
+  box-shadow: 0 0 10px rgba(114, 238, 224, .55);
+  transform: scaleX(0);
+  transform-origin: left center;
+  will-change: transform;
+}
+
 footer {
   margin-top: 80px;
   border-top: 1px solid var(--line);
@@ -335,6 +712,49 @@ footer .copyright a:hover {
     margin-bottom: 42px;
   }
 
+  .home-hero {
+    min-height: 520px;
+  }
+
+  .home-hero .site-heading {
+    padding-top: 142px;
+    padding-bottom: 116px;
+  }
+
+  .home-hero::after {
+    top: 46%;
+    opacity: .26;
+  }
+
+  .home-console__bar {
+    padding: 0 13px;
+    font-size: 9px;
+  }
+
+  .home-console__body {
+    grid-template-columns: 1fr;
+    gap: 22px;
+    padding: 23px 20px 24px;
+  }
+
+  .home-console__principles {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .home-console__principles span {
+    padding: 10px 4px;
+    font-size: 10px;
+  }
+
+  .avatar-orbit::before,
+  .avatar-orbit::after {
+    animation: none;
+  }
+
+  .reading-progress {
+    top: 55px;
+  }
+
   .intro-header .site-heading,
   .intro-header .page-heading,
   .intro-header .post-heading {
@@ -358,5 +778,36 @@ footer .copyright a:hover {
 
   .nav-label {
     display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .home-hero::before,
+  .home-hero::after,
+  .home-console__signal::before,
+  .avatar-orbit::before,
+  .avatar-orbit::after {
+    animation: none;
+  }
+
+  .hero-particles {
+    display: none;
+  }
+
+  .motion-ready [data-reveal],
+  .motion-ready [data-chapter-reveal] {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  .post-preview,
+  .avatar-orbit,
+  .avatar-orbit img {
+    transition-duration: .01ms;
   }
 }

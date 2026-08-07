@@ -9,7 +9,7 @@
                 <p class="copyright text-muted">
                     Copyright &copy; {{ site.title }} {{ site.time | date: '%Y' }}
                     <br>
-                    Built with Jekyll · Designed for a curious mind
+                    {{ site["footer-signature"] }}
                 </p>
             </div>
         </div>
@@ -25,6 +25,9 @@
 
 <!-- Custom Theme JavaScript -->
 <script src="{{ "/js/hux-blog.min.js" | prepend: site.baseurl }}"></script>
+
+<!-- Melting_Pot visual interactions -->
+<script src="{{ "/js/custom-effects.js" | prepend: site.baseurl }}"></script>
 
 <!-- Simple Jekyll Search -->
 <script src="{{ "/js/simple-jekyll-search.min.js" | prepend: site.baseurl }}"></script>

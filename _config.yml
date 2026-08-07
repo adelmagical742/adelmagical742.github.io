@@ -8,6 +8,15 @@ keyword: "个人技术博客, 编程, Web, JavaScript, 前端, 工程实践, 学
 url: "https://meltingppot.github.io" # GitHub Pages 账号地址
 baseurl: "/Melting_Pot.github.io" # 当前仓库是项目站点
 
+# Home identity
+home-tagline: "扣1送地狱火"
+home-status: "呼呼睡大觉中ZZZ..."
+home-principles:
+  - "诚实表达"
+  - "清晰说明"
+  - "保持可复现"
+footer-signature: "Melting_Pot // Stay curious. Keep building."
+
 # Publish posts or collection documents with a future date.
 future: true
 
@@ -76,7 +85,7 @@ ga_domain:
 # Sidebar settings
 sidebar: true # whether or not using Sidebar.
 sidebar-about-description: "我是 Melting_Pot。<br>把复杂的问题拆开，把值得记录的东西留下。"
-sidebar-avatar: img/avatar-lab.svg
+sidebar-avatar: img/avatar-meltingppot.png
 
 # Featured Tags
 featured-tags: true # whether or not using Feature-Tags

@@ -93,8 +93,11 @@
 {% endif %}
 
 {% if include.type == 'page' %}
-<header class="intro-header" style="background-image: url('{{ site.baseurl }}/{% if page.header-img %}{{ page.header-img }}{% else %}{{ site.header-img }}{% endif %}')">
+<header class="intro-header{% if page.url == '/' %} home-hero{% endif %}" style="background-image: url('{{ site.baseurl }}/{% if page.header-img %}{{ page.header-img }}{% else %}{{ site.header-img }}{% endif %}')">
   <div class="header-mask"></div>
+  {% if page.url == '/' %}
+  <canvas class="hero-particles" aria-hidden="true"></canvas>
+  {% endif %}
   <div class="container">
     <div class="row">
       <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
@@ -103,8 +106,13 @@
         {% else %}
         <div class="site-heading">
         {% endif %}
+          {% if page.url == '/' %}
+          <h1 class="js-terminal-decode" aria-label="{{ site.title }}">{{ site.title }}</h1>
+          <span class="subheading">{{ site["home-tagline"] }}</span>
+          {% else %}
           <h1>{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}</h1>
           <span class="subheading">{{ page.description }}</span>
+          {% endif %}
         </div>
       </div>
     </div>

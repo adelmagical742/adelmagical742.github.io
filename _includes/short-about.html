@@ -3,7 +3,9 @@
   <h5><a href="{{'/about/' | prepend: site.baseurl }}">关于我</a></h5>
   <div class="short-about">
     {% if site.sidebar-avatar %}
-    <img src="{{ site.baseurl }}/{{ site.sidebar-avatar }}" alt="站点头像" />
+    <div class="avatar-orbit">
+      <img src="{{ site.baseurl }}/{{ site.sidebar-avatar }}" alt="Melting_Pot 的头像" />
+    </div>
     {% endif %}
     {% if site.sidebar-about-description %}
     <p>{{site.sidebar-about-description}}</p>
