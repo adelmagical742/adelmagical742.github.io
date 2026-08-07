@@ -1053,6 +1053,13 @@ a:focus {
   color: var(--accent) !important;
 }
 
+/* The brand sits on the permanently dark header, so it stays white in both themes. */
+.navbar-custom .navbar-brand,
+.navbar-custom .navbar-brand:hover,
+.navbar-custom .navbar-brand:focus {
+  color: #fff !important;
+}
+
 .navbar-custom .navbar-brand:hover,
 .navbar-custom .nav li a:hover,
 .theme-toggle:hover,
