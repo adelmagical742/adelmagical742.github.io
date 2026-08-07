@@ -1112,10 +1112,14 @@ header.intro-header::before {
 }
 
 .home-console__lights i,
-.home-console__lights i:first-child,
-.home-console__lights i:nth-child(2),
+.home-console__lights i:first-child {
+  background: #ff5f57;
+}
+.home-console__lights i:nth-child(2) {
+  background: #32c759; /* 绿色 */
+}
 .home-console__lights i:last-child {
-  background: #777;
+  background: #0a84ff; /* 蓝色 */
 }
 
 .home-console__signal,
