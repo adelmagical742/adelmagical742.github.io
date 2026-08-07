@@ -36,7 +36,7 @@
       toggle.setAttribute('aria-pressed', dark ? 'true' : 'false');
 
       var themeMeta = document.querySelector('meta[name="theme-color"]');
-      if (themeMeta) themeMeta.setAttribute('content', dark ? '#07111f' : '#f5f8fc');
+      if (themeMeta) themeMeta.setAttribute('content', dark ? '#202126' : '#f5f5f3');
     }
 
     function saveTheme(theme) {
@@ -142,7 +142,7 @@
           var dy = particles[i].y - particles[j].y;
           var distance = Math.sqrt(dx * dx + dy * dy);
           if (distance < 105) {
-            context.strokeStyle = 'rgba(114, 238, 224, ' + ((1 - distance / 105) * 0.1) + ')';
+            context.strokeStyle = 'rgba(235, 235, 235, ' + ((1 - distance / 105) * 0.1) + ')';
             context.lineWidth = 0.7;
             context.beginPath();
             context.moveTo(particles[i].x, particles[i].y);
@@ -168,7 +168,7 @@
         if (particle.x < -10) particle.x = width + 10;
         if (particle.x > width + 10) particle.x = -10;
 
-        context.fillStyle = 'rgba(143, 245, 233, ' + particle.alpha + ')';
+        context.fillStyle = 'rgba(235, 235, 235, ' + particle.alpha + ')';
         context.beginPath();
         context.arc(particle.x, particle.y, particle.radius, 0, Math.PI * 2);
         context.fill();
@@ -178,7 +178,7 @@
           var dy = particle.y - pointer.y;
           var distance = Math.sqrt(dx * dx + dy * dy);
           if (distance < 145) {
-            context.strokeStyle = 'rgba(114, 238, 224, ' + ((1 - distance / 145) * 0.24) + ')';
+            context.strokeStyle = 'rgba(235, 235, 235, ' + ((1 - distance / 145) * 0.24) + ')';
             context.lineWidth = 0.8;
             context.beginPath();
             context.moveTo(particle.x, particle.y);
