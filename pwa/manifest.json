@@ -1,0 +1,19 @@
+{
+  "name": "Melting_Pot",
+  "short_name": "Melting_Pot",
+  "description": "Melting_Pot 的个人技术实验室。",
+  "icons": [{
+    "src": "icons/128.png",
+    "sizes": "128x128",
+    "type": "image/png"
+  }, {
+    "src": "icons/512.png",
+    "sizes": "512x512",
+    "type": "image/png"
+  }],
+  "background_color": "#07111f",
+  "theme_color": "#07111f",
+  "start_url": "/",
+  "display": "standalone",
+  "orientation": "portrait"
+}

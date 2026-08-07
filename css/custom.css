@@ -1,0 +1,325 @@
+/*
+ * 代码边界 · personal visual layer
+ * Keep this file separate from hux-blog.css so theme updates stay painless.
+ */
+:root {
+  --ink: #142033;
+  --muted: #6b7890;
+  --paper: #f5f8fc;
+  --card: #ffffff;
+  --line: #e4eaf2;
+  --accent: #11a6a1;
+  --accent-deep: #087875;
+  --navy: #07111f;
+  --shadow: 0 16px 45px rgba(27, 51, 82, .08);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+  letter-spacing: .01em;
+}
+
+body::selection {
+  background: rgba(17, 166, 161, .22);
+}
+
+a {
+  color: var(--accent-deep);
+  transition: color .2s ease, opacity .2s ease;
+}
+
+a:hover,
+a:focus {
+  color: var(--accent);
+}
+
+/* A quiet glass navigation bar keeps the page identity visible while scrolling. */
+.navbar-custom {
+  background: rgba(7, 17, 31, .18);
+  border: 0;
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+}
+
+.navbar-custom .navbar-brand,
+.navbar-custom .nav li a {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  letter-spacing: .08em;
+}
+
+.navbar-custom .navbar-brand {
+  font-size: 15px;
+  color: #fff;
+}
+
+.navbar-custom .nav li a {
+  font-size: 12px;
+}
+
+.navbar-custom .nav li a:hover,
+.navbar-custom .navbar-brand:hover {
+  color: #8ff5e9;
+}
+
+.nav-label {
+  margin-left: 7px;
+  font-family: inherit;
+  font-size: 11px;
+}
+
+/* Home and page headers */
+header.intro-header {
+  min-height: 520px;
+  margin-bottom: 68px;
+  background-color: var(--navy);
+  background-position: center;
+  background-size: cover;
+  box-shadow: 0 22px 60px rgba(7, 17, 31, .18);
+}
+
+header.intro-header::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(125deg, rgba(7, 17, 31, .96) 0%, rgba(7, 17, 31, .78) 43%, rgba(7, 17, 31, .28) 100%),
+    linear-gradient(rgba(17, 166, 161, .06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(17, 166, 161, .06) 1px, transparent 1px);
+  background-size: auto, 48px 48px, 48px 48px;
+}
+
+header.intro-header .header-mask {
+  background: transparent;
+}
+
+.intro-header .site-heading,
+.intro-header .page-heading,
+.intro-header .post-heading {
+  position: relative;
+  z-index: 1;
+  text-align: left;
+}
+
+.intro-header .site-heading h1,
+.intro-header .page-heading h1,
+.intro-header .post-heading h1 {
+  max-width: 760px;
+  margin-bottom: 24px;
+  color: #fff;
+  font-size: clamp(42px, 7vw, 78px);
+  font-weight: 800;
+  letter-spacing: -.055em;
+  line-height: 1.05;
+}
+
+.intro-header .site-heading .subheading,
+.intro-header .page-heading .subheading,
+.intro-header .post-heading .subheading {
+  color: #a9bed1;
+  font-size: 16px;
+  font-weight: 400;
+  letter-spacing: .05em;
+}
+
+.intro-header .site-heading::before,
+.intro-header .page-heading::before,
+.intro-header .post-heading::before {
+  display: block;
+  margin-bottom: 18px;
+  color: #72eee0;
+  content: "// personal knowledge base";
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 12px;
+  letter-spacing: .13em;
+  text-transform: uppercase;
+}
+
+.intro-header .post-heading::before {
+  content: "// field notes";
+}
+
+/* Article list */
+.postlist-container {
+  position: relative;
+}
+
+.post-preview {
+  margin: 0 0 22px;
+  padding: 30px 34px 26px;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  background: var(--card);
+  box-shadow: var(--shadow);
+  transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+}
+
+.post-preview:hover {
+  border-color: rgba(17, 166, 161, .38);
+  box-shadow: 0 22px 55px rgba(27, 51, 82, .13);
+  transform: translateY(-4px);
+}
+
+.post-preview > a > .post-title {
+  margin-top: 0;
+  color: var(--ink);
+  font-size: 25px;
+  font-weight: 750;
+  letter-spacing: -.025em;
+  line-height: 1.35;
+}
+
+.post-preview > a > .post-subtitle {
+  color: var(--accent-deep);
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 1.7;
+}
+
+.post-preview .post-content-preview {
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.9;
+}
+
+.post-preview > .post-meta {
+  margin: 20px 0 0;
+  color: #98a5b6;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 11px;
+  letter-spacing: .04em;
+}
+
+.postlist-container > hr,
+.post-preview + hr {
+  display: none;
+}
+
+/* Sidebar and tags */
+.sidebar-container {
+  color: var(--muted);
+}
+
+.sidebar-container > section,
+.sidebar-container > .short-about {
+  padding: 24px 22px;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  background: rgba(255, 255, 255, .75);
+  box-shadow: 0 10px 30px rgba(27, 51, 82, .05);
+}
+
+.sidebar-container h5,
+.sidebar-container h5 a {
+  color: var(--ink);
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 11px;
+  letter-spacing: .12em;
+}
+
+.sidebar-container .short-about img {
+  width: 84px;
+  height: 84px;
+  border: 0;
+  box-shadow: 0 10px 24px rgba(17, 166, 161, .2);
+}
+
+.sidebar-container .short-about p {
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.8;
+}
+
+.sidebar-container .tags a {
+  border-color: var(--line);
+  color: var(--accent-deep);
+  background: #fff;
+}
+
+/* Long-form reading */
+.post-container {
+  color: #36455c;
+  font-size: 16px;
+  line-height: 1.95;
+}
+
+.post-container h1,
+.post-container h2,
+.post-container h3,
+.post-container h4 {
+  color: var(--ink);
+  font-weight: 750;
+  letter-spacing: -.025em;
+}
+
+.post-container blockquote {
+  margin: 28px 0;
+  padding: 16px 22px;
+  border-left: 3px solid var(--accent);
+  border-radius: 0 10px 10px 0;
+  background: rgba(17, 166, 161, .07);
+  color: #51627a;
+}
+
+.post-container code {
+  border-radius: 4px;
+  background: #eaf2f5;
+  color: var(--accent-deep);
+}
+
+footer {
+  margin-top: 80px;
+  border-top: 1px solid var(--line);
+  background: var(--navy);
+}
+
+footer .copyright,
+footer .copyright a {
+  color: #8ca1b8;
+}
+
+footer .copyright a:hover {
+  color: #72eee0;
+}
+
+@media (max-width: 767px) {
+  .navbar-custom {
+    background: rgba(7, 17, 31, .84);
+  }
+
+  header.intro-header {
+    min-height: 450px;
+    margin-bottom: 42px;
+  }
+
+  .intro-header .site-heading,
+  .intro-header .page-heading,
+  .intro-header .post-heading {
+    text-align: left;
+  }
+
+  .intro-header .site-heading h1,
+  .intro-header .page-heading h1,
+  .intro-header .post-heading h1 {
+    font-size: 46px;
+  }
+
+  .post-preview {
+    padding: 24px 22px 21px;
+    border-radius: 13px;
+  }
+
+  .post-preview > a > .post-title {
+    font-size: 22px;
+  }
+
+  .nav-label {
+    display: none;
+  }
+}
