@@ -1336,3 +1336,562 @@ html[data-theme="dark"] .home-console__signal::before {
 html[data-theme="dark"] .home-console__principles span {
   border-color: rgba(126, 179, 143, .22);
 }
+
+/*
+ * Theme contrast contract
+ *
+ * The original theme, the digital-lab layer and the later neutral palette all
+ * define colors.  This final section is intentionally authoritative: every
+ * reusable surface reads from the same semantic variables, while the header,
+ * footer and console remain dark in both modes.
+ */
+:root {
+  --ink: #242424;
+  --muted: #626262;
+  --paper: #f5f5f3;
+  --card: #ffffff;
+  --surface-soft: #ececea;
+  --line: #d8d8d4;
+  --accent: #3d7755;
+  --accent-deep: #2f6849;
+  --accent-soft: #e5efe8;
+  --header-bg: #18191b;
+  --header-ink: #f7f7f7;
+  --header-muted: #d0d0d0;
+  --code-bg: #ececea;
+  --code-ink: #303030;
+  --shadow: 0 16px 45px rgba(0, 0, 0, .08);
+}
+
+html[data-theme="dark"] {
+  --ink: #ececee;
+  --muted: #b4b4b7;
+  --paper: #202126;
+  --card: #292a30;
+  --surface-soft: #34353b;
+  --line: #45464e;
+  --accent: #91c39f;
+  --accent-deep: #9bcaa8;
+  --accent-soft: #303e35;
+  --header-bg: #18191e;
+  --header-ink: #f7f7f7;
+  --header-muted: #d0d0d2;
+  --code-bg: #36373d;
+  --code-ink: #ececee;
+  --shadow: 0 18px 48px rgba(0, 0, 0, .28);
+}
+
+body,
+.post-container,
+.sidebar-container {
+  color: var(--ink);
+}
+
+body,
+.post-preview,
+.sidebar-container > section,
+.sidebar-container > .short-about,
+.search-page,
+.pager li > a,
+.pager li > span,
+select {
+  transition: background-color .24s ease, border-color .24s ease, color .24s ease, box-shadow .24s ease;
+}
+
+body::selection,
+::selection {
+  background: var(--accent-soft);
+  color: var(--ink);
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+/* Navigation always sits on a dark bar, independent of the reading theme. */
+.navbar-custom,
+.navbar-custom.invert,
+html[data-theme="dark"] .navbar-custom,
+html[data-theme="dark"] .navbar-custom.invert {
+  border-bottom-color: rgba(255, 255, 255, .09) !important;
+  background: rgba(24, 25, 27, .88) !important;
+}
+
+.navbar-custom .navbar-brand,
+.navbar-custom .navbar-brand:hover,
+.navbar-custom .navbar-brand:focus,
+.navbar-custom .nav li a,
+.navbar-custom .nav li a:hover,
+.navbar-custom .nav li a:focus,
+.navbar-custom.invert .navbar-brand,
+.navbar-custom.invert .nav li a,
+.navbar-custom.is-fixed .navbar-brand,
+.navbar-custom.is-fixed .nav li a,
+.theme-toggle,
+.navbar-custom.invert .theme-toggle,
+.navbar-custom.is-fixed .theme-toggle {
+  color: var(--header-ink) !important;
+}
+
+.navbar-custom .nav li a:hover,
+.navbar-custom .nav li a:focus,
+.navbar-custom .navbar-brand:hover,
+.navbar-custom .navbar-brand:focus,
+.theme-toggle:hover,
+.theme-toggle:focus {
+  color: #d8e7dc !important;
+}
+
+.navbar-custom .navbar-toggle,
+.navbar-custom.invert .navbar-toggle {
+  border-color: rgba(255, 255, 255, .32);
+}
+
+.navbar-custom .navbar-toggle .icon-bar,
+.navbar-custom.invert .navbar-toggle .icon-bar {
+  background-color: var(--header-ink);
+}
+
+.navbar-custom .navbar-toggle:hover,
+.navbar-custom .navbar-toggle:focus,
+.navbar-custom .navbar-toggle:active {
+  background: rgba(255, 255, 255, .1);
+}
+
+@media only screen and (min-width: 1170px) {
+  .navbar-custom.is-fixed,
+  html[data-theme="dark"] .navbar-custom.is-fixed {
+    border-bottom-color: rgba(255, 255, 255, .1) !important;
+    background: rgba(24, 25, 27, .96) !important;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  .navbar-default .navbar-collapse,
+  html[data-theme="dark"] .navbar-default .navbar-collapse {
+    border: 1px solid rgba(255, 255, 255, .1);
+    background: #202126;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, .3);
+  }
+
+  .navbar-custom .nav li a,
+  .navbar-custom.invert .nav li a,
+  .navbar-custom .theme-toggle,
+  html[data-theme="dark"] .navbar-custom .theme-toggle {
+    color: var(--header-ink) !important;
+  }
+}
+
+/* Header copy is designed against the permanent dark image mask. */
+.intro-header .site-heading h1,
+.intro-header .page-heading h1,
+.intro-header .post-heading h1 {
+  color: var(--header-ink);
+}
+
+.intro-header .site-heading .subheading,
+.intro-header .page-heading .subheading,
+.intro-header .post-heading .subheading,
+.intro-header .post-heading .meta {
+  color: var(--header-muted);
+}
+
+.intro-header .site-heading::before,
+.intro-header .page-heading::before,
+.intro-header .post-heading::before,
+.home-hero .site-heading::before {
+  color: #91c39f;
+}
+
+.intro-header .tags a,
+.intro-header .tags .tag,
+.intro-header .post-heading .meta a {
+  border-color: rgba(255, 255, 255, .68) !important;
+  background: rgba(0, 0, 0, .18) !important;
+  color: var(--header-ink) !important;
+}
+
+.intro-header .tags a:hover,
+.intro-header .tags a:focus,
+.intro-header .tags .tag:hover,
+.intro-header .tags .tag:focus {
+  border-color: #b5d4bd !important;
+  background: rgba(145, 195, 159, .18) !important;
+  color: #f7fff9 !important;
+}
+
+/* Home cards and metadata use the active reading palette. */
+.post-preview,
+.sidebar-container > section,
+.sidebar-container > .short-about,
+html[data-theme="dark"] .post-preview,
+html[data-theme="dark"] .sidebar-container > section,
+html[data-theme="dark"] .sidebar-container > .short-about {
+  border-color: var(--line) !important;
+  background: var(--card) !important;
+  color: var(--ink);
+  box-shadow: var(--shadow);
+}
+
+.post-preview > a > .post-title,
+.mini-post-list .post-preview > a .post-title,
+.sidebar-container h5,
+.sidebar-container h5 a {
+  color: var(--ink) !important;
+}
+
+.post-preview > a > .post-subtitle,
+.mini-post-list .post-preview > a .post-subtitle {
+  color: var(--muted) !important;
+}
+
+.post-preview .post-content-preview,
+.post-preview > .post-meta,
+.sidebar-container,
+.sidebar-container .short-about p,
+html[data-theme="dark"] .post-preview .post-content-preview,
+html[data-theme="dark"] .post-preview > .post-meta,
+html[data-theme="dark"] .sidebar-container,
+html[data-theme="dark"] .sidebar-container .short-about p {
+  color: var(--muted);
+}
+
+.post-preview:hover,
+html[data-theme="dark"] .post-preview:hover {
+  border-color: var(--accent) !important;
+}
+
+.post-preview.tilt-card::before,
+html[data-theme="dark"] .post-preview.tilt-card::before {
+  background: radial-gradient(circle at var(--glow-x) var(--glow-y), rgba(79, 143, 104, .12), transparent 36%);
+}
+
+.sidebar-container .tags a,
+html[data-theme="dark"] .sidebar-container .tags a {
+  border-color: var(--line) !important;
+  background: var(--card) !important;
+  color: var(--ink) !important;
+}
+
+.sidebar-container .tags a:hover,
+.sidebar-container .tags a:focus,
+html[data-theme="dark"] .sidebar-container .tags a:hover,
+html[data-theme="dark"] .sidebar-container .tags a:focus {
+  border-color: var(--accent) !important;
+  background: var(--accent-soft) !important;
+  color: var(--accent-deep) !important;
+}
+
+/* The console is intentionally the same dark component in both modes. */
+.home-console,
+html[data-theme="dark"] .home-console {
+  border-color: rgba(126, 179, 143, .58);
+  background: linear-gradient(135deg, #1d1d1d, #111111);
+  color: #dedede;
+}
+
+.home-console__signal,
+.home-console__prompt,
+.home-console__principles i,
+html[data-theme="dark"] .home-console__signal,
+html[data-theme="dark"] .home-console__prompt,
+html[data-theme="dark"] .home-console__principles i {
+  color: #91c39f;
+}
+
+.home-console__signal::before,
+html[data-theme="dark"] .home-console__signal::before {
+  background: #91c39f;
+  box-shadow: 0 0 0 0 rgba(145, 195, 159, .25);
+}
+
+.home-console__label,
+.home-console__bar {
+  color: #a3a3a3;
+}
+
+.home-console__status strong {
+  color: #f2f2f2;
+}
+
+.home-console__principles span,
+html[data-theme="dark"] .home-console__principles span {
+  border-color: rgba(145, 195, 159, .24);
+  background: rgba(145, 195, 159, .035);
+  color: #d0d0d0;
+}
+
+.avatar-orbit::before,
+html[data-theme="dark"] .avatar-orbit::before {
+  border-color: rgba(61, 119, 85, .5);
+  border-top-color: var(--accent);
+  border-right-color: transparent;
+}
+
+.avatar-orbit::after,
+html[data-theme="dark"] .avatar-orbit::after {
+  border-color: rgba(61, 119, 85, .28);
+}
+
+/* Long-form content, controls and generated MathJax inherit readable colors. */
+.post-container,
+html[data-theme="dark"] .post-container {
+  color: var(--ink);
+}
+
+.post-container h1,
+.post-container h2,
+.post-container h3,
+.post-container h4,
+.post-container h5,
+.post-container h6 {
+  color: var(--ink);
+}
+
+.post-container a:not(.anchorjs-link) {
+  color: var(--accent-deep) !important;
+  text-decoration-color: color-mix(in srgb, var(--accent) 45%, transparent);
+  text-underline-offset: .16em;
+}
+
+.post-container a:not(.anchorjs-link):hover,
+.post-container a:not(.anchorjs-link):focus {
+  color: var(--accent) !important;
+  text-decoration-color: currentColor;
+}
+
+.post-container blockquote,
+html[data-theme="dark"] .post-container blockquote {
+  border-left-color: var(--accent);
+  background: var(--accent-soft);
+  color: var(--muted);
+}
+
+.post-container code,
+html[data-theme="dark"] .post-container code {
+  background: var(--code-bg);
+  color: var(--code-ink);
+}
+
+.post-container pre,
+.post-container .highlight,
+.post-container .highlighter-rouge .highlight {
+  border-color: #45464e;
+  background: #222329;
+  color: #e5e5e7;
+}
+
+.post-container pre code,
+.post-container .highlight code,
+html[data-theme="dark"] .post-container pre code,
+html[data-theme="dark"] .post-container .highlight code {
+  background: transparent;
+  color: inherit;
+}
+
+.post-container th,
+html[data-theme="dark"] .post-container th {
+  border-color: var(--line);
+  background: var(--surface-soft);
+  color: var(--ink);
+}
+
+.post-container td,
+html[data-theme="dark"] .post-container td {
+  border-color: var(--line);
+  color: var(--ink);
+}
+
+.post-container tr:nth-child(even) td,
+html[data-theme="dark"] .post-container tr:nth-child(even) td {
+  background: color-mix(in srgb, var(--card) 68%, transparent);
+}
+
+.post-container mark {
+  border-radius: 3px;
+  background: var(--accent-soft);
+  color: var(--ink);
+}
+
+.post-container .MathJax,
+.post-container .MathJax_Display,
+.post-container .MathJax_SVG_Display {
+  color: var(--ink) !important;
+}
+
+.reading-progress {
+  background: rgba(36, 36, 36, .12);
+}
+
+html[data-theme="dark"] .reading-progress {
+  background: rgba(255, 255, 255, .1);
+}
+
+.reading-progress span,
+html[data-theme="dark"] .reading-progress span {
+  background: linear-gradient(90deg, #3d7755, #91c39f);
+  box-shadow: 0 0 10px rgba(79, 143, 104, .32);
+}
+
+hr,
+.post-container h2::before,
+html[data-theme="dark"] hr,
+html[data-theme="dark"] .post-container h2::before {
+  border-color: var(--line);
+}
+
+select,
+html[data-theme="dark"] select {
+  border: 1px solid var(--line);
+  background: var(--card);
+  color: var(--ink);
+}
+
+.pager li > a,
+.pager li > span,
+html[data-theme="dark"] .pager li > a,
+html[data-theme="dark"] .pager li > span {
+  border-color: var(--line);
+  background: var(--card);
+  color: var(--ink) !important;
+}
+
+.pager li > a > span,
+html[data-theme="dark"] .pager li > a > span {
+  color: var(--muted);
+}
+
+.pager li > a:hover,
+.pager li > a:focus,
+html[data-theme="dark"] .pager li > a:hover,
+html[data-theme="dark"] .pager li > a:focus {
+  border-color: var(--accent);
+  background: var(--accent);
+  color: #fff !important;
+}
+
+.pager li > a:hover > span,
+.pager li > a:focus > span {
+  color: #fff;
+}
+
+.side-catalog,
+.side-catalog .catalog-body li a {
+  color: var(--muted) !important;
+}
+
+.side-catalog .catalog-body .active,
+html[data-theme="dark"] .side-catalog .catalog-body .active {
+  background: var(--accent-soft);
+}
+
+.side-catalog .catalog-body .active a,
+html[data-theme="dark"] .side-catalog .catalog-body .active a {
+  color: var(--accent-deep) !important;
+}
+
+/* Archive filters override the old tag-cloud script's inline blue colors. */
+#tag_cloud a,
+#tag_cloud .tag,
+html[data-theme="dark"] #tag_cloud a,
+html[data-theme="dark"] #tag_cloud .tag {
+  border: 1px solid var(--line) !important;
+  background: var(--card) !important;
+  color: var(--ink) !important;
+}
+
+#tag_cloud a:hover,
+#tag_cloud a:focus,
+#tag_cloud a:active,
+#tag_cloud a.focus,
+#tag_cloud .tag:hover,
+#tag_cloud .tag:focus,
+#tag_cloud .tag:active,
+#tag_cloud .tag.focus,
+#tag_cloud a.tag-button--all:hover,
+#tag_cloud a.tag-button--all:focus,
+#tag_cloud a.tag-button--all:active,
+#tag_cloud a.tag-button--all.focus {
+  border-color: var(--accent) !important;
+  background: var(--accent-soft) !important;
+  color: var(--accent-deep) !important;
+}
+
+#tag_cloud a.tag-button--all,
+#tag_cloud .tag.tag-button--all,
+.listing-seperator,
+.mini-post-list .tag-text {
+  color: var(--accent-deep) !important;
+}
+
+#tag_cloud sup {
+  color: var(--muted);
+}
+
+/* Search is a full-page reading surface and must switch as a unit. */
+.search-page,
+html[data-theme="dark"] .search-page {
+  background: var(--paper);
+  color: var(--ink);
+}
+
+.search-page #search-input,
+html[data-theme="dark"] .search-page #search-input {
+  background: transparent;
+  color: var(--ink);
+  caret-color: var(--accent);
+}
+
+.search-page #search-input::placeholder {
+  color: var(--muted);
+  opacity: 1;
+}
+
+.search-icon-close,
+html[data-theme="dark"] .search-icon-close {
+  color: var(--ink);
+}
+
+.search-page .post-preview {
+  border-color: var(--line) !important;
+  background: var(--card) !important;
+}
+
+/* Social symbols use one neutral high-contrast pair in both themes. */
+footer .list-inline .fa-circle,
+.sidebar-container .short-about .list-inline .fa-circle,
+html[data-theme="dark"] footer .list-inline .fa-circle,
+html[data-theme="dark"] .sidebar-container .short-about .list-inline .fa-circle {
+  color: #707070 !important;
+}
+
+footer .list-inline .fa-inverse,
+.sidebar-container .short-about .list-inline .fa-inverse,
+html[data-theme="dark"] footer .list-inline .fa-inverse,
+html[data-theme="dark"] .sidebar-container .short-about .list-inline .fa-inverse {
+  color: #fff !important;
+}
+
+footer .list-inline a:hover .fa-circle,
+.sidebar-container .short-about .list-inline a:hover .fa-circle {
+  color: #4f8f68 !important;
+}
+
+footer,
+html[data-theme="dark"] footer {
+  border-top-color: #3a3a3d;
+  background: var(--header-bg);
+}
+
+footer .copyright,
+footer .copyright a,
+html[data-theme="dark"] footer .copyright,
+html[data-theme="dark"] footer .copyright a {
+  color: #bcbcc0 !important;
+}
+
+footer .copyright a:hover,
+footer .copyright a:focus {
+  color: #e1eee5 !important;
+}
