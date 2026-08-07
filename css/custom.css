@@ -1060,6 +1060,22 @@ a:focus {
   color: #fff !important;
 }
 
+/* Social icons keep the daytime contrast in both themes. */
+footer .list-inline .fa-circle,
+.sidebar-container .short-about .list-inline .fa-circle {
+  color: #bdbdbd !important;
+}
+
+footer .list-inline .fa-inverse,
+.sidebar-container .short-about .list-inline .fa-inverse {
+  color: #fff !important;
+}
+
+footer .list-inline a:hover .fa-circle,
+.sidebar-container .short-about .list-inline a:hover .fa-circle {
+  color: #8f8f8f !important;
+}
+
 .navbar-custom .navbar-brand:hover,
 .navbar-custom .nav li a:hover,
 .theme-toggle:hover,
