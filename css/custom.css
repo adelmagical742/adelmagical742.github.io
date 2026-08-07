@@ -1111,7 +1111,7 @@ header.intro-header::before {
   color: #909090;
 }
 
-.home-console__lights i,
+/* .home-console__lights i, */
 .home-console__lights i:first-child {
   background: #ff5f57;
 }
