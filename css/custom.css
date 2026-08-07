@@ -1063,12 +1063,12 @@ a:focus {
 /* Social icons keep the daytime contrast in both themes. */
 footer .list-inline .fa-circle,
 .sidebar-container .short-about .list-inline .fa-circle {
-  color: #bdbdbd !important;
+  color: #ffffff !important;
 }
 
 footer .list-inline .fa-inverse,
 .sidebar-container .short-about .list-inline .fa-inverse {
-  color: #fff !important;
+  color: #000000c2 !important;
 }
 
 footer .list-inline a:hover .fa-circle,
